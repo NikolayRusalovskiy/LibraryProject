@@ -1,5 +1,6 @@
 import main.java.dao.BooksDao;
 import main.java.model.Book;
+import main.java.service.LibraryService;
 
 import java.util.List;
 import java.util.Scanner;
@@ -8,6 +9,7 @@ public class Main {
 
     public static void main(String[] args) {
         boolean endFlag=true;
+        LibraryService libraryService =  new LibraryService();
 while (endFlag){
     System.out.println("Menu:\n" +
             "-addBook\n" +
@@ -19,7 +21,7 @@ while (endFlag){
     Scanner sc = new Scanner(System.in);
     String str = sc.nextLine();
     switch (str){
-        case "addBook": break;
+        case "addBook": libraryService.addBook(); break;
         case"delete": break;
         case"showBooksBy": break;
         case"sortedAndPrintBy": break;
