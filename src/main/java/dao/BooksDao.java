@@ -13,8 +13,8 @@ public class BooksDao {
     public List<Book> getLibraryList() {
         Book book = new Book("Шевченко", "Кобзар", "Проминь", 1990,"Киев", 2001, 343, "Поезия");
 
-        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("D:\\NRusalovskiy\\Auto\\LibraryProject\\src\\Books.txt"));
-             ObjectInputStream ois = new ObjectInputStream(new FileInputStream("D:\\NRusalovskiy\\Auto\\LibraryProject\\src\\Books.txt"))
+        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("D:\\Kolya\\Java\\LibraryProject\\src\\Books.txt"));
+             ObjectInputStream ois = new ObjectInputStream(new FileInputStream("D:\\Kolya\\Java\\LibraryProject\\src\\Books.txt"))
             )
         {
             oos.writeObject(bookList);
@@ -29,7 +29,7 @@ public class BooksDao {
     }
 
     public void putBooksToLibrary(){
-        try (ObjectOutputStream oos = new ObjectOutputStream( new FileOutputStream("D:\\NRusalovskiy\\Auto\\LibraryProject\\src\\Books.txt"))
+        try (ObjectOutputStream oos = new ObjectOutputStream( new FileOutputStream("D:\\Kolya\\Java\\LibraryProject\\src\\Books.txt"))
             )
         {
             oos.writeObject(bookList);
@@ -39,7 +39,7 @@ public class BooksDao {
     }
     public List<Book> getBookList(){
         try (
-             ObjectInputStream ois = new ObjectInputStream(new FileInputStream("D:\\NRusalovskiy\\Auto\\LibraryProject\\src\\Books.txt"))
+             ObjectInputStream ois = new ObjectInputStream(new FileInputStream("D:\\Kolya\\Java\\LibraryProject\\src\\Books.txt"))
         )
         {
             ArrayList<Book> ss = (ArrayList)ois.readObject();
