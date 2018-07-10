@@ -31,7 +31,7 @@ while (endFlag){
     }
 
 }
-
+        System.out.println("----------");
           List<Book> bl = new BooksDao().getBookList();
           for (Book book:bl
              ) {
