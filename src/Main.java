@@ -16,7 +16,8 @@ while (endFlag){
             "-deleteBook\n" +
             "-showBooksBy\n" +
             "-sortedAndPrintBy\n" +
-            "-showAll");
+            "-showAll\n" +
+            "-exit");
     System.out.print("Write command and press Enter->");
     Scanner sc = new Scanner(System.in);
     String str = sc.nextLine();
@@ -25,7 +26,7 @@ while (endFlag){
         case"delete": break;
         case"showBooksBy": break;
         case"sortedAndPrintBy": break;
-        case"showAll": break;
+        case"showAll": libraryService.printLibrary();break;
         case"exit": endFlag=false;break;
         default:
             System.err.println("Incorrect command");
@@ -33,11 +34,6 @@ while (endFlag){
     }
 
 }
-        System.out.println("----------");
-          List<Book> bl = new BooksDao().getBookList();
-          for (Book book:bl
-             ) {
-            System.out.println(book);
-        }
+
     }
 }
