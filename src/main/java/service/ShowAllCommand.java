@@ -4,7 +4,7 @@ import main.java.model.Command;
 
 public class ShowAllCommand implements Command {
     @Override
-    public void execute(String command) {
+    public void execute() {
         new LibraryService().printLibrary();
     }
 }

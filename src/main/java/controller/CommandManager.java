@@ -1,10 +1,7 @@
 package main.java.controller;
 
-import main.java.service.AddBookCommand;
+import main.java.service.*;
 import main.java.model.Command;
-import main.java.service.LibraryService;
-import main.java.service.RemoveBookCommand;
-import main.java.service.ShowAllCommand;
 
 public enum CommandManager {
 
@@ -29,17 +26,15 @@ public enum CommandManager {
         public Command execute() {
             return new ShowAllCommand();
         }
+    },
+    exit{
+        @Override
+        public Command execute() {
+            return new ExitSystemCommand();
+        }
     };
 
     public abstract Command execute();
 
-    public void init() {
-        System.out.println("Menu:\n" +
-                "-addBook\n" +
-                "-deleteBook\n" +
-                "-showBooksBy\n" +
-                "-sortedAndPrintBy\n" +
-                "-showAll\n" +
-                "-exit");
-    }
+
 }

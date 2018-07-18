@@ -9,7 +9,7 @@ public class AddBookCommand implements Command {
     }
 
     @Override
-    public void execute(String command) {
+    public void execute() {
         new LibraryService().addBook();
         System.out.println("Complete execute add Book!");
     }
