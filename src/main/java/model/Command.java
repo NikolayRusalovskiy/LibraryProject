@@ -1,5 +1,5 @@
 package main.java.model;
 
 public interface Command {
-    void execute();
+    void execute(String command);
 }

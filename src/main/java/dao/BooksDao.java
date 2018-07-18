@@ -11,7 +11,6 @@ public class BooksDao {
 
 
     public List<Book> getLibraryList() {
-        Book book = new Book("Шевченко", "Кобзар", "Проминь", 1990,"Киев", 2001, 343, "Поезия");
 
         try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("src/Books.txt"));
              ObjectInputStream ois = new ObjectInputStream(new FileInputStream("src/Books.txt"))
@@ -28,7 +27,7 @@ public class BooksDao {
         return bookList;
     }
 
-    public void putBooksToLibrary(){
+    public void putBooksToLibrary(List<Book> bookList){
         try (ObjectOutputStream oos = new ObjectOutputStream( new FileOutputStream("src/Books.txt"))
             )
         {

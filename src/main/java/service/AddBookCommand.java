@@ -1,4 +1,7 @@
-package main.java.model;
+package main.java.service;
+
+import main.java.model.Command;
+import main.java.service.LibraryService;
 
 public class AddBookCommand implements Command {
     public AddBookCommand() {
@@ -6,7 +9,8 @@ public class AddBookCommand implements Command {
     }
 
     @Override
-    public void execute() {
+    public void execute(String command) {
+        new LibraryService().addBook();
         System.out.println("Complete execute add Book!");
     }
 }
