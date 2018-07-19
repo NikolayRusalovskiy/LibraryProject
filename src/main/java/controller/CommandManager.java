@@ -28,6 +28,12 @@ public enum CommandManager {
             return new AddBCommand();
         }
     },
+    sortedCommand{
+        @Override
+        public Command returnCommand() {
+            return new SortedCommand();
+        }
+    },
     showAll{
         @Override
         public Command returnCommand() {

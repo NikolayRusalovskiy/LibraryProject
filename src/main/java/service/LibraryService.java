@@ -3,6 +3,7 @@ package main.java.service;
 import main.java.dao.BooksDao;
 import main.java.model.Book;
 
+import java.util.Comparator;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Scanner;
@@ -70,10 +71,23 @@ public class LibraryService {
         setBookList(bl);
     }
 
-    public boolean checkToAction() {
-        return true;
+    public void sort() {
+        String sortBy = null;
+        System.out.print("Choose your sort BY author, titlePublisher, genre->");
+//        sortBy = sc.nextLine();
+        sortedByAuthor();
+        printLibrary();
+        System.out.println("Complete sort By name");
     }
 
+    public void sortedByAuthor() {
+        bl.sort(new Comparator<Book>() {
+            @Override
+            public int compare(Book o1, Book o2) {
+                return o1.getAuthor().compareTo(o2.getAuthor());
+            }
+        });
+    }
 
     public void setBookList(List<Book> bookList) {
         new BooksDao().putBooksToLibrary(bookList);
