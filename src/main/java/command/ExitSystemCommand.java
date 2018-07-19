@@ -1,6 +1,4 @@
-package main.java.service;
-
-import main.java.model.Command;
+package main.java.command;
 
 public class ExitSystemCommand implements Command {
     @Override

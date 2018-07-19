@@ -1,7 +1,6 @@
 package main.java.controller;
 
-import main.java.service.*;
-import main.java.model.Command;
+import main.java.command.*;
 
 public enum CommandManager {
 

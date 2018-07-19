@@ -1,7 +1,7 @@
-package main.java.service;
+package main.java.command;
 
 
-import main.java.model.Command;
+import main.java.service.LibraryService;
 
 public class AddBCommand implements Command {
     @Override
