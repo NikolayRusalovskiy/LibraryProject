@@ -72,12 +72,24 @@ public class LibraryService {
     }
 
     public void sort() {
-        String sortBy = null;
+        String sortBy ;
         System.out.print("Choose your sort BY author, titlePublisher, genre->");
-//        sortBy = sc.nextLine();
-        sortedByAuthor();
+        sortBy = sc.nextLine();
+        switch (sortBy) {
+            case "author":
+                sortedByAuthor();
+                break;
+            case "titlePublisher":
+                sortedByTitlePublisher();
+                break;
+            case "genre":
+                sortedByGenre();
+                break;
+            default:
+                System.out.println("Printed Library as IS ");
+        }
         printLibrary();
-        System.out.println("Complete sort By name");
+        System.out.println("Complete sort By " + sortBy);
     }
 
     public void sortedByAuthor() {
@@ -85,6 +97,24 @@ public class LibraryService {
             @Override
             public int compare(Book o1, Book o2) {
                 return o1.getAuthor().compareTo(o2.getAuthor());
+            }
+        });
+    }
+
+    public void sortedByTitlePublisher() {
+        bl.sort(new Comparator<Book>() {
+            @Override
+            public int compare(Book o1, Book o2) {
+                return o1.getTitlePublisher().compareTo(o2.getTitlePublisher());
+            }
+        });
+    }
+
+    public void sortedByGenre() {
+        bl.sort(new Comparator<Book>() {
+            @Override
+            public int compare(Book o1, Book o2) {
+                return o1.getGenre().compareTo(o2.getGenre());
             }
         });
     }
