@@ -1,7 +1,5 @@
 package main.java.controller;
 
-import main.java.service.LibraryService;
-
 import java.util.Arrays;
 import java.util.Scanner;
 
@@ -14,11 +12,17 @@ public class LibraryController {
         System.out.println("Start Menu");
         System.out.println(Arrays.toString(CommandManager.values()));
 
-        while (sc.hasNext()) {
+        while (true) {
             System.out.print("Write command and press Enter->");
             String str = sc.nextLine();
-            CommandManager commandManager = CommandManager.valueOf(str);
-            commandManager.execute();
+            CommandManager commandManager = null;
+            try {
+                commandManager = CommandManager.valueOf(str);
+                commandManager.returnCommand().execute();
+
+            } catch (IllegalArgumentException e) {
+                System.out.println("Try Another Command");
+            }
         }
     }
 }

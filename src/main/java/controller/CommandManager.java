@@ -7,7 +7,7 @@ public enum CommandManager {
 
     addBook {
         @Override
-        public Command execute() {
+        public Command returnCommand() {
             System.out.println("add book");
 
             return new AddBookCommand();
@@ -16,25 +16,32 @@ public enum CommandManager {
     },
     deleteBook{
         @Override
-        public Command execute() {
+        public Command returnCommand() {
             System.out.println("delete book");
             return new RemoveBookCommand();
         }
     },
+    addBCommand{
+        @Override
+        public Command returnCommand() {
+            System.out.println("Add random 5 books");
+            return new AddBCommand();
+        }
+    },
     showAll{
         @Override
-        public Command execute() {
+        public Command returnCommand() {
             return new ShowAllCommand();
         }
     },
     exit{
         @Override
-        public Command execute() {
+        public Command returnCommand() {
             return new ExitSystemCommand();
         }
     };
 
-    public abstract Command execute();
+    public abstract Command returnCommand();
 
 
 }

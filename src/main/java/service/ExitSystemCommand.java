@@ -5,6 +5,6 @@ import main.java.model.Command;
 public class ExitSystemCommand implements Command {
     @Override
     public void execute() {
-System.exit(1);
+System.exit(0);
     }
 }

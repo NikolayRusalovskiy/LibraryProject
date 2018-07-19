@@ -15,9 +15,7 @@ public class Book implements Serializable {
     private int pages;
     private String genre;
 
-    public Book(String
-                        author, String name, String titlePublisher, int yearOfCreationPublisher,
-                String cityPublisher, int publishingYear, int pages, String genre) {
+    public Book(String author, String name, String titlePublisher, int yearOfCreationPublisher, String cityPublisher, int publishingYear, int pages, String genre) {
         this.author = author;
         this.name = name;
         this.titlePublisher = titlePublisher;

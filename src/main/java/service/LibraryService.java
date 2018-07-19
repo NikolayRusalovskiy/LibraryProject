@@ -3,6 +3,7 @@ package main.java.service;
 import main.java.dao.BooksDao;
 import main.java.model.Book;
 
+import java.util.Iterator;
 import java.util.List;
 import java.util.Scanner;
 
@@ -45,15 +46,27 @@ public class LibraryService {
         bl.add(new Book(author, name, titlePublisher, yearOfCreationPublisher, cityPublisher, publishingYear, pages, genre));
     }
 
+    public void addRandomBook(int numberLoop) {
+        for (int i = 0; i <= numberLoop; i++) {
+            bl.add(new Book("" + i, "Шевченко" + i, "Проминь" + i, 1980 + i, "Киев" + i, 2000 + i, 200 + 10 * i, "Драма" + i));
+        }
+        new BooksDao().putBooksToLibrary(bl);
+    }
+
     public void removeBookByName() {
-        System.out.print("Enter Name of Book ->");
+        System.out.print("Enter Author of Book ->");
         String name = sc.nextLine();
-        for (Book book : bl) {
+
+
+        Iterator<Book> iterator = bl.iterator();
+        while (iterator.hasNext()) {
+            Book book = iterator.next();
             if (book.getAuthor().equals(name)) {
                 System.out.println("DELETE " + book);
                 bl.remove(book);
             }
         }
+
         setBookList(bl);
     }
 
